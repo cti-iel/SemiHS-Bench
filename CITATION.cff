@@ -1,0 +1,49 @@
+cff-version: 1.2.0
+title: "SemiHS-Bench: A Semiconductor Benchmark for HS6 Classification from Sparse ERP-Style Text"
+message: "If you use this benchmark, dataset, or code, please cite the paper below."
+type: dataset
+version: "2.0.0"
+date-released: "2026-06-08"
+url: "https://github.com/cti-iel/SemiHS-Bench"
+repository-code: "https://github.com/cti-iel/SemiHS-Bench"
+license: CC-BY-SA-4.0
+abstract: >
+  SemiHS-Bench is a benchmark for six-digit Harmonized System (HS6) tariff
+  classification of semiconductor supply-chain products from real ERP-style
+  text. Each product is represented through controlled input tiers derived from
+  the same observation, with labels grounded in a held-out multilingual corpus
+  of customs rulings (EBTI, CROSS, and Japan Customs). The benchmark exposes
+  two evaluation modes: a constrained 4-way ranking with a 25% random baseline,
+  and an open ranking against the in-scope HS6 taxonomy. It ships two matched
+  900-record splits (eval and train, 1,800 records total) with identical HS6
+  coverage across 38 HS4 families / 73 HS6 codes, and a reference corpus of
+  889 customs rulings.
+keywords:
+  - HS code classification
+  - tariff classification
+  - LLM benchmark
+  - information retrieval
+  - supply chain intelligence
+  - trade compliance
+  - semiconductor
+authors:
+  - family-names: "Bembde"
+    given-names: "Swapnil"
+    affiliation: "Hitachi America Ltd"
+    email: "swapnil.bembde@hal.hitachi.com"
+  - family-names: "Penmatsa"
+    given-names: "Sai Rama Raju"
+    affiliation: "Hitachi America Ltd"
+    email: "sairamaraju.penmatsa@hal.hitachi.com"
+preferred-citation:
+  type: conference-paper
+  title: "SemiHS-Bench: A Semiconductor Benchmark for HS6 Classification from Sparse ERP-Style Text"
+  year: 2026
+  collection-title: "Proceedings of the ACM International Conference on Information and Knowledge Management (CIKM)"
+  authors:
+    - family-names: "Bembde"
+      given-names: "Swapnil"
+      affiliation: "Hitachi America Ltd"
+    - family-names: "Penmatsa"
+      given-names: "Sai Rama Raju"
+      affiliation: "Hitachi America Ltd"

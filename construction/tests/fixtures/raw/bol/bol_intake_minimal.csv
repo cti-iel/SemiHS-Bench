@@ -1,0 +1,12 @@
+id,prod_desc,hs_code,date,supplier_t,buyer_t,orig_port,dest_port,quantity,quantity_unit,master_bill_no,orig_country,target_hs_family
+TS-0001,Photoresist developer TMAH 2.38% for lithography process,37071000,2025-01-10 00:00:00,Tokyo Ohka Kogyo,TSMC Arizona,YOKOHAMA,PHOENIX,500,KGS,MBL-A001,JP,3707
+TS-0002,Polysilicon 11N grade for solar wafer manufacturing,28046100,2025-02-15 00:00:00,Hemlock Semiconductor,JinkoSolar Vietnam,SEATTLE,HAI PHONG,7200,KGS,MBL-A002,US,2804
+TS-0003,Bare silicon wafer 300mm prime grade Czochralski,38180000,2025-03-01 00:00:00,Shin-Etsu Handotai,Samsung Austin Semiconductor,YOKOHAMA,HOUSTON,2400,PCS,MBL-A003,JP,3818
+TS-0004,short,38180000,2025-03-02 00:00:00,Shin-Etsu Handotai,Samsung Austin Semiconductor,YOKOHAMA,HOUSTON,100,PCS,MBL-A004,JP,3818
+TS-0005,Bare silicon wafer 300mm prime grade Czochralski grown,38180000,2025-03-03 00:00:00,Shin-Etsu Handotai,Samsung Austin Semiconductor,YOKOHAMA,HOUSTON,2400,PCS,MBL-A005,JP,3818
+TS-0006,electronic parts assorted from manufacturer,85423100,2025-03-04 00:00:00,Texas Instruments,Some Buyer,DALLAS,SHENZHEN,1000,PCS,MBL-A006,US,8542
+TS-0007,Lithium-ion battery pack 18650 cell,85076000,2025-03-05 00:00:00,BatteryCo,SomeBuyer,SHENZHEN,LOS ANGELES,500,PCS,MBL-A007,CN,
+TS-0008,Photoresist developer TMAH 2.38% for lithography process,37071000,2025-03-06 00:00:00,Tokyo Ohka Kogyo,DHL Global Forwarding,YOKOHAMA,LOS ANGELES,300,KGS,MBL-A008,JP,3707
+TS-0009,Plasma etch chamber kit for 300mm wafer fabrication,84862000,2025-03-07 00:00:00,Lam Research,TSMC Arizona,SAN JOSE,PHOENIX,4,PCS,MBL-A009,US,8486
+TS-0010,Wafer prober mainframe for parametric IC test,90308200,2025-03-08 00:00:00,Advantest,SK hynix,YOKOHAMA,INCHEON,2,PCS,MBL-A010,JP,9030
+TS-0011,Bare silicon wafer 300mm prime grade Czochralski,38180000,2025-03-09 00:00:00,Shin-Etsu Handotai,TSMC Arizona,YOKOHAMA,PHOENIX,99999999,PCS,MBL-A011,JP,3818

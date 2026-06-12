@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemiHS-Bench Submission",
+  "description": "Model-prediction submission format for SemiHS-Bench (schema_version 2.0.0). Each submission reports one (mode, tier) run. Predictions may optionally carry cited_evidence_ids and a short rationale; neither is scored by default.",
+  "type": "object",
+  "required": ["submission", "predictions"],
+  "properties": {
+    "submission": {
+      "type": "object",
+      "required": ["name", "model_id", "mode", "tier", "schema_version"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "Short label for this submission, e.g. 'claude-sonnet-4-7-constrained-tier1'"
+        },
+        "model_id": {
+          "type": "string",
+          "description": "The model under test (e.g. 'claude-sonnet-4-7', 'gpt-4o', 'gemini-2.5-pro')"
+        },
+        "mode": {
+          "type": "string",
+          "enum": ["constrained", "open"],
+          "description": "Eval mode: 'constrained' = rank the 4 candidates per record; 'open' = rank from the full HS6 taxonomy"
+        },
+        "tier": {
+          "type": "integer",
+          "enum": [1, 2],
+          "description": "Which input tier was evaluated (1 = full natural-language description; 2 = minimal MPN / short descriptor + manufacturer)"
+        },
+        "schema_version": {
+          "type": "string",
+          "enum": ["2.0.0"]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Optional free-text describing the run (prompt version, temperature, system prompt hash, etc.)"
+        }
+      }
+    },
+    "predictions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["frozen_id", "ranked_codes"],
+        "additionalProperties": false,
+        "properties": {
+          "frozen_id": {
+            "type": "string",
+            "pattern": "^v(1\\.5|2\\.0)\\.(dev|test|eval|train)\\.\\d{4,}(\\.[a-z_]+)?$",
+            "description": "Record identifier matching the frozen_id field in the dataset file (e.g. 'v2.0.eval.0001')."
+          },
+          "ranked_codes": {
+            "type": "array",
+            "items": {"type": "string", "pattern": "^\\d{6}$"},
+            "minItems": 1,
+            "description": "Ranked HS6 codes, most likely first. For constrained mode this MUST be a permutation of the record's candidate_set.codes. For open mode this may be any non-empty prefix of the full HS6 taxonomy ranking; scoring uses top-1/top-3/top-5 and MRR."
+          },
+          "cited_evidence_ids": {
+            "type": "array",
+            "items": {"type": "string"},
+            "description": "OPTIONAL: model-cited reference-corpus evidence_ids supporting the top-1 prediction. Reserved for a planned Evidence-Recall@k metric and currently unscored. When present, IDs must resolve in data/reference_corpus.jsonl; the scorer drops unknown IDs with a warning."
+          },
+          "rationale_short": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "OPTIONAL: ≤200-char model-generated rationale for the top-1 prediction. Not scored; recorded for qualitative analysis."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semihs-bench-construction"
+version = "2.0.0"
+description = "Dataset-construction pipeline for SemiHS-Bench (HS6 classification)"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+  {name = "SemiHS-Bench Contributors"},
+]
+dependencies = [
+  "jsonschema>=4.22",
+  "openpyxl>=3.1",
+  "pandas>=2.2",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["src*"]

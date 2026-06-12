@@ -1,0 +1,36 @@
+{
+  "name": "smoke-mock",
+  "schema_version": "2.0.0",
+  "data": {
+    "split": "eval",
+    "mode": "constrained",
+    "tier": 1,
+    "limit": 5
+  },
+  "run": {
+    "out_dir": "runs/smoke-mock",
+    "resume": true,
+    "max_parallel_requests": 1,
+    "max_retries": 0,
+    "temperature": 0.0,
+    "max_output_tokens": 10000,
+    "progress_every": 5
+  },
+  "prompts": {
+    "dir": "bench/prompts",
+    "version": "default"
+  },
+  "models": [
+    {
+      "name": "mock-first",
+      "provider": "mock",
+      "model": "mock-client",
+      "strategy": "first",
+      "reasoning_levels": [null],
+      "web_modes": ["off"]
+    }
+  ],
+  "langsmith": {
+    "mode": "off"
+  }
+}

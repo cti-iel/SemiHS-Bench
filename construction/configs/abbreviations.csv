@@ -1,0 +1,210 @@
+full_term,abbreviation,domain
+application-specific integrated circuit,ASIC,components
+digital signal processor,DSP,components
+field-programmable gate array,FPGA,components
+integrated circuit,IC,components
+metal-oxide-semiconductor fet,MOSFET,components
+microcontroller,MCU,components
+operational amplifier,OPAMP,components
+printed circuit board,PCB,components
+system on chip,SoC,components
+automatic test equipment,ATE,equipment
+chemical vapor deposition,CVD,equipment
+die bonder,DIE BONDER,equipment
+wafer inspection,WF INSPECT,equipment
+wire bonder,WIRE BONDER,equipment
+doped silicon wafer,DOPED SI WAFER,materials
+photoresist,PHOTORESIST,materials
+silicon wafer,SI WAFER,materials
+ball grid array,BGA,packaging
+dual in-line package,DIP,packaging
+low-profile quad flat package,LQFP,packaging
+quad flat no-lead,QFN,packaging
+small outline integrated circuit,SOIC,packaging
+surface mount device,SMD,packaging
+surface mount technology,SMT,packaging
+connector,CONN,passives
+multilayer ceramic capacitor,MLCC,passives
+resistor,RES,passives
+dynamic random access memory,DRAM,specifications
+flash memory,FLASH,specifications
+operating temperature,OP TEMP,specifications
+static random access memory,SRAM,specifications
+supply voltage,VDD,specifications
+- electronic integrated,- ELEC INTG,components
+- electronic integrated circuits,- ELEC INTG circuits,components
+amplifier,AMP,components
+application,APP,components
+automatic,AUTO,components
+ceramic,CER,components
+checking electrical quantities,CHECK ELEC QUANTI,components
+checking electrical quantities excluding,CHECK ELEC QUANTI EXCLUD,components
+checking geometrical quantities,CHECK GEOMET QUANTI,components
+checking geometrical quantities taric,CHECK GEOMET QUANTI taric,components
+connection,CONN,components
+controller,CTRL,components
+controllers,CTRLS,components
+converters logic circuits amplifiers,CONVER logic circuits AMPLIF,components
+detector,DET,components
+detectors,DETS,components
+devices electronic integrated,DEVS ELEC INTG,components
+devices electronic integrated circuits,DEVS ELEC INTG circuits,components
+devices photosensitive semiconductor,DEVS PHOTOS SEMI,components
+devices photosensitive semiconductor devices,DEVS PHOTOS SEMI DEVS,components
+digital,DIG,components
+diode,DIO,components
+diode module,DIO MOD,components
+diode module comprising,DIO MOD COMPRIS,components
+electrical,ELEC,components
+electrical quantities,ELEC QUANTI,components
+electrical quantities excluding,ELEC QUANTI EXCLUD,components
+electrical quantities excluding meters,ELEC QUANTI EXCLUD meters,components
+electronic,ELEC,components
+electronic integrated,ELEC INTG,components
+electronic integrated circuits,ELEC INTG circuits,components
+emitting diode,EMITT DIO,components
+emitting diode module,EMITT DIO MOD,components
+emitting diode module comprising,EMITT DIO MOD COMPRIS,components
+function,FUNC,components
+functions,FUNCS,components
+geometrical quantities,GEOMET QUANTI,components
+geometrical quantities taric,GEOMET QUANTI taric,components
+handling,HDLG,components
+instrument,INSTR,components
+instruments,INSTR,components
+integrated,INTG,components
+led light emitting diode,LED light EMITT DIO,components
+light emitting diode,LED,components
+light emitting diode module,light EMITT DIO MOD,components
+light-emitting diodes mounted piezoelectric,LIGHT-EMITT diodes mounted PIEZOE,components
+manufacture of semiconductor,MANUFA OF SEMI,components
+manufacture of semiconductor boules,MANUFA OF SEMI boules,components
+manufacture of semiconductor devices,MANUFA OF SEMI DEVS,components
+material,MATL,components
+materials,MATLS,components
+memory,MEM,components
+module comprising,MOD COMPRIS,components
+module in addition,MOD IN ADDIT,components
+monitoring,MON,components
+optical,OPT,components
+optical fibres optical,OPT fibres OPT,components
+optical fibres optical fibre,OPT fibres OPT fibre,components
+optical instruments,OPT INSTR,components
+oscilloscopes,OSCOPE,components
+photosensitive semiconductor,PHOTOS SEMI,components
+photosensitive semiconductor devices,PHOTOS SEMI DEVS,components
+photosensitive semiconductor devices including,PHOTOS SEMI DEVS INCLUD,components
+printed,PRINT,components
+processes,PROCS,components
+processor,PROC,components
+processors and controllers,PROCES AND CTRLS,components
+processors and controllers whether,PROCES AND CTRLS whether,components
+protecting electrical circuits,PROTECT ELEC circuits,components
+quantities excluding,QUANTI EXCLUD,components
+quantities excluding meters,QUANTI EXCLUD meters,components
+recording device,RECORD DEV,components
+recording device taric,RECORD DEV taric,components
+semiconductor,SEMI,components
+semiconductor devices,SEMI DEVS,components
+semiconductor devices electronic,SEMI DEVS ELEC,components
+semiconductor devices electronic integrated,SEMI DEVS ELEC INTG,components
+semiconductor devices including,SEMI DEVS INCLUD,components
+semiconductor devices including photovoltaic,SEMI DEVS INCLUD PHOTOV,components
+semiconductor devices photosensitive,SEMI DEVS PHOTOS,components
+semiconductor devices photosensitive semiconductor,SEMI DEVS PHOTOS SEMI,components
+sensor,SNSR,components
+sensors,SNSR,components
+signal converters,SIG CONVER,components
+similar semiconductor devices,similar SEMI DEVS,components
+similar semiconductor devices photosensitive,similar SEMI DEVS PHOTOS,components
+specific,SPEC,components
+surface,SURF,components
+switching,SW,components
+switching devices,SW DEVS,components
+switching or protecting,SW OR PROTECT,components
+switching or protecting electrical,SW OR PROTECT ELEC,components
+transistors and similar semiconductor,TRANSI AND similar SEMI,components
+- measuring or checking,- MEAS OR CHECK,equipment
+acceleration measurement,ACCELERAT MEAS,equipment
+cross-talk meters gain measuring,CROSS- meters GAIN MEAS,equipment
+electrical apparatus for switching,ELEC apparatus FOR SW,equipment
+electronic for measuring,ELEC FOR MEAS,equipment
+equipment,EQPT,equipment
+equipment scientific and measuring,EQPT SCIENT AND MEAS,equipment
+equipment sensors,EQPT SNSR,equipment
+gain measuring instruments,GAIN MEAS INSTR,equipment
+gain measuring instruments distortion,GAIN MEAS INSTR DISTORT,equipment
+measurement,MEAS,equipment
+measuring,MEAS,equipment
+measuring and checking,MEAS AND CHECK,equipment
+measuring electr. quantities,MEAS electr. QUANTI,equipment
+measuring equipment,MEAS EQPT,equipment
+measuring equipment sensors,MEAS EQPT SNSR,equipment
+measuring instruments,MEAS INSTR,equipment
+measuring instruments distortion,MEAS INSTR DISTORT,equipment
+measuring instruments distortion factor,MEAS INSTR DISTORT factor,equipment
+measuring or checking,MEAS OR CHECK,equipment
+measuring or checking electrical,MEAS OR CHECK ELEC,equipment
+measuring or checking geometrical,MEAS OR CHECK GEOMET,equipment
+measuring or checking instruments,MEAS OR CHECK INSTR,equipment
+measuring or detecting,MEAS OR DETECT,equipment
+measuring or detecting alpha,MEAS OR DETECT alpha,equipment
+meters gain measuring instruments,meters GAIN MEAS INSTR,equipment
+scientific and measuring,SCIENT AND MEAS,equipment
+scientific and measuring equipment,SCIENT AND MEAS EQPT,equipment
+testing,TEST,equipment
+chemical,CHEM,materials
+chemical or allied industries,CHEM OR allied INDUST,materials
+chemical preparations,CHEM PREPAR,materials
+chemical products and preparations,CHEM products AND PREPAR,materials
+chemical products or preparations,CHEM products OR PREPAR,materials
+copper,CU,materials
+silicon,SI,materials
+wafer,WFR,materials
+wafers semiconductor devices,wafers SEMI DEVS,materials
+wafers semiconductor devices electronic,wafers SEMI DEVS ELEC,materials
+mount,MT,packaging
+package,PKG,packaging
+packaging,PKG,packaging
+capacitors,CAPS,passives
+connectors,CONNS,passives
+connectors electrical,CONNS ELEC,passives
+connectors for optical,CONNS FOR OPT,passives
+connectors for optical fibres,CONNS FOR OPT fibres,passives
+connectors junction,CONNS JUNCT,passives
+connectors junction boxes,CONNS JUNCT boxes,passives
+emitting diodes with connectors,EMITT diodes WITH CONNS,passives
+resistors,RES,passives
+resistors including,RES INCLUD,passives
+resistors including rheostats,RES INCLUD rheostats,passives
+v connectors for optical,V CONNS FOR OPT,passives
+cleaning,CLEAN,processes
+coating,COAT,processes
+manufacturing,MFG,processes
+process,PROC,processes
+current,CURR,specifications
+current not exceeding,CURR NOT EXCEED,specifications
+electrical current,ELEC CURR,specifications
+frequency,FREQ,specifications
+power,PWR,specifications
+power supply,PWR SUP,specifications
+pressure,PRESS,specifications
+resistance,RES,specifications
+temperature,TEMP,specifications
+voltage,VOLT,specifications
+voltage current,VOLT CURR,specifications
+voltage not exceeding,VOLT NOT EXCEED,specifications
+tantalum polymer capacitor,TANT POLY CAP,passives
+polymer capacitor,POLY CAP,passives
+battery charger,BAT CHGR,components
+laser marking machine,LASER MARKER,equipment
+laser cutting machine,LASER CUTTER,equipment
+laser marking,LASER MARK,equipment
+laser cutting,LASER CUT,equipment
+microfilm reader printer,MFR PRINTER,equipment
+toner powder,TONER PWD,materials
+polyester resin,PE RESIN,materials
+sealed lead acid,SLA,components
+tungsten carbide,TUNG CARB,materials
+zirconium,ZR,materials
+carbon dioxide,CO2,materials

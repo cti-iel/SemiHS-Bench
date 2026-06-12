@@ -1,0 +1,386 @@
+# SemiHS-Bench — Boundary-tag vocabulary
+#
+# Controlled vocabulary for the per-record `difficulty_tags` field and the
+# `boundary_note` comment on the released splits. Two groups:
+#
+#   sibling_split  — subheading splits inside one HS4 family. Assigned when
+#                    the gold code and at least one candidate-slate distractor
+#                    fall inside the same cluster: the record then poses that
+#                    sibling decision problem by construction.
+#   cross_family   — frontiers between HS families that customs practice
+#                    finds genuinely confusable. Assigned when the gold code
+#                    sits on one side and either a slate distractor falls on
+#                    another side, or the record text carries keyword evidence
+#                    for the gold side and at least one opposing side.
+#
+# Code-list notation: 6-digit entries are exact HS6 codes; shorter entries are
+# prefixes expanded against data/taxonomy.csv at load time (so "8541" means
+# every in-scope 8541.xx code, "903" covers 9030.xx and 9031.xx).
+#
+# Keyword lists (cross_family only): single-word terms must match a whole
+# token of the record text; multi-word terms match as phrases. Matching is
+# case-insensitive over tier1_description + justification_text.
+#
+# The `note` text is released verbatim as the record's boundary_note and
+# states the deciding criterion for the boundary.
+#
+# Used by:
+#   - src/annotation/boundary_detector.py (tag assignment + note composition)
+#   - scripts/annotate_difficulty.py (writes difficulty_tags/boundary_note
+#     into ../data/eval.json and ../data/train.json)
+#   - scripts/iaa_export_csv.py (group-stratified IAA sampling)
+
+hs_version: HS2022
+
+tags:
+  # ---- Within-family sibling splits ------------------------------------
+
+  - id: "8541_siblings"
+    group: sibling_split
+    sides:
+      - codes: ["854110", "854121", "854129", "854130", "854141", "854142",
+                "854149", "854151", "854160", "854190"]
+    note: >
+      Within heading 8541 the subheading turns on device type and operating
+      characteristics: rectifier diodes vs transistors (with the 1 W
+      dissipation threshold separating 8541.21 from 8541.29), thyristors,
+      LED vs photovoltaic vs other photosensitive devices, the HS2022
+      semiconductor-transducer carve-out (8541.51), mounted piezo-electric
+      crystals (8541.60), and parts (8541.90).
+
+  - id: "8542_ic_function"
+    group: sibling_split
+    sides:
+      - codes: ["854231", "854232", "854233", "854239"]
+    note: >
+      Sibling subheadings within 8542 split integrated circuits by principal
+      function: processors and controllers (8542.31), memories (8542.32),
+      amplifiers (8542.33), other (8542.39); the device's primary function,
+      not a secondary capability, settles the subheading.
+
+  - id: "8486_process_stage"
+    group: sibling_split
+    sides:
+      - codes: ["848610", "848620", "848640", "848690"]
+    note: >
+      Heading 8486 splits by process stage: boule and wafer production
+      (8486.10) vs device fabrication on the wafer (8486.20) vs the machines
+      specified in Chapter 84 Note 11(C) (8486.40) vs parts and accessories
+      (8486.90).
+
+  - id: "8504_power_splits"
+    group: sibling_split
+    sides:
+      - codes: ["850431", "850440", "850450", "850490"]
+    note: >
+      Heading 8504 separates transformers (8504.31) from static converters
+      (8504.40), inductors (8504.50) and parts (8504.90); the principle of
+      electrical conversion decides.
+
+  - id: "8536_connection_splits"
+    group: sibling_split
+    sides:
+      - codes: ["853610", "853650", "853669"]
+    note: >
+      Heading 8536 splits switching and connection gear by function: fuses
+      (8536.10), other switches (8536.50), plugs and sockets (8536.69), all
+      for voltages not exceeding 1,000 V.
+
+  - id: "9030_measurement_splits"
+    group: sibling_split
+    sides:
+      - codes: ["903033", "903039", "903040", "903082", "903084", "903090"]
+    note: >
+      Heading 9030 subheadings turn on the quantity measured and the
+      instrument's specialisation: voltage/current/resistance/power meters
+      without (9030.33) or with (9030.39) a recording device,
+      telecommunications-specific instruments (9030.40), instruments for
+      measuring semiconductor wafers or devices (9030.82), other recording
+      instruments (9030.84), and parts (9030.90).
+
+  - id: "9031_inspection_splits"
+    group: sibling_split
+    sides:
+      - codes: ["903141", "903149", "903180", "903190"]
+    note: >
+      Heading 9031 splits measuring and checking instruments by technology
+      and target: optical instruments for semiconductor wafers or devices
+      (9031.41), other optical instruments (9031.49), non-optical
+      instruments (9031.80), and parts (9031.90).
+
+  - id: "2804_gas_purity"
+    group: sibling_split
+    sides:
+      - codes: ["280410", "280440", "280461"]
+    note: >
+      Heading 2804 turns on element identity and purity: hydrogen (2804.10),
+      oxygen (2804.40), and silicon containing by weight not less than
+      99.99 % of silicon (2804.61).
+
+  - id: "3707_photochemical"
+    group: sibling_split
+    sides:
+      - codes: ["370710", "370790"]
+    note: >
+      Heading 3707 separates sensitised emulsions (3707.10) from other
+      chemical preparations for photographic uses (3707.90).
+
+  - id: "9027_analysis_splits"
+    group: sibling_split
+    sides:
+      - codes: ["902710", "902750"]
+    note: >
+      Heading 9027 separates gas and smoke analysis apparatus (9027.10) from
+      other instruments using optical radiations (9027.50).
+
+  - id: "8471_adp_splits"
+    group: sibling_split
+    sides:
+      - codes: ["847130", "847150"]
+    note: >
+      Heading 8471 separates portable complete data-processing machines
+      (8471.30) from processing units presented separately (8471.50).
+
+  # ---- Cross-family frontiers -------------------------------------------
+
+  - id: "8541_vs_8542"
+    group: cross_family
+    sides:
+      - codes: ["8541"]
+        keywords: ["diode", "diodes", "transistor", "transistors", "mosfet",
+                   "mosfets", "thyristor", "thyristors", "triac", "igbt",
+                   "rectifier", "rectifiers", "discrete", "photodiode",
+                   "phototransistor", "led", "leds"]
+      - codes: ["8542"]
+        keywords: ["integrated circuit", "integrated circuits", "monolithic",
+                   "microcontroller", "microprocessor", "processor",
+                   "controller", "logic", "amplifier", "multichip",
+                   "multi-chip", "chipset", "hybrid integrated"]
+    note: >
+      Discrete semiconductor device (8541) vs integrated circuit (8542): the
+      deciding signal is integration of active circuitry beyond a single
+      junction device on the die; multichip and hybrid modules sit on this
+      line.
+
+  - id: "populated_board_boundary"
+    group: cross_family
+    sides:
+      - codes: ["847330"]
+        keywords: ["automatic data processing", "adp", "computer",
+                   "computers", "motherboard", "graphics card",
+                   "expansion card", "daughterboard", "memory module",
+                   "printed circuit assembly", "populated board", "pcba"]
+      - codes: ["854231", "854232", "854239"]
+        keywords: ["integrated circuit", "integrated circuits", "monolithic",
+                   "chipset", "system on chip"]
+      - codes: ["853890"]
+        keywords: ["control panel", "control board", "control apparatus",
+                   "switchgear", "switchboard", "relay", "relays"]
+    note: >
+      Populated printed-circuit board: classifiable as an ADP part (8473.30),
+      as the integrated circuit that dominates it (8542.31/32/39), or as a
+      part of control apparatus (8538.90); Section XVI Note 2 governs the
+      attribution.
+
+  - id: "storage_boundary"
+    group: cross_family
+    sides:
+      - codes: ["852351"]
+        keywords: ["solid-state drive", "solid state drive", "ssd", "ssds",
+                   "storage device", "storage drive", "hard drive"]
+      - codes: ["854232"]
+        keywords: ["memory", "memories", "flash", "nand", "dram", "sram",
+                   "eeprom"]
+      - codes: ["847330"]
+        keywords: ["memory module", "dimm", "computer",
+                   "automatic data processing", "adp"]
+    note: >
+      Solid-state storage: a finished drive falls in 8523.51, the bare memory
+      IC in 8542.32, and a memory module fitted for a data-processing machine
+      in 8473.30; the level of assembly and presentation decides.
+
+  - id: "doped_vs_undoped"
+    group: cross_family
+    sides:
+      - codes: ["381800"]
+        keywords: ["doped", "doping", "dopant", "dopants", "epitaxial",
+                   "electronic grade", "semiconductor wafer",
+                   "semiconductor wafers"]
+      - codes: ["280461"]
+        keywords: ["pure", "purity", "99.99", "undoped", "polycrystalline",
+                   "polysilicon", "metallurgical"]
+      - codes: ["285000"]
+        keywords: ["nitride", "nitrides", "silicide", "silicides", "hydride",
+                   "hydrides", "boride", "borides", "gallium nitride"]
+    note: >
+      Doped vs undoped material: chemical elements doped for use in
+      electronics (3818.00) vs high-purity elemental silicon (2804.61) vs
+      nitrides and silicides such as GaN (2850.00); doping and intended
+      electronic use decide.
+
+  - id: "process_vs_metrology"
+    group: cross_family
+    sides:
+      - codes: ["8486"]
+        keywords: ["deposition", "lithography", "etch", "etching", "dicing",
+                   "implantation", "implanter", "sputtering", "epitaxy",
+                   "cvd", "pvd", "ald", "coater", "developer"]
+      - codes: ["903082", "903141", "903180"]
+        keywords: ["measure", "measures", "measuring", "measurement",
+                   "inspect", "inspection", "inspecting", "metrology",
+                   "prober", "probing", "tester", "testing", "gauge",
+                   "gauging", "checking"]
+    note: >
+      Manufacturing vs measuring function: machines that modify the wafer
+      (8486) against instruments that measure or inspect without modifying
+      it (9030.82, 9031.41, 9031.80); for in-line tools the principal
+      function decides.
+
+  - id: "furnace_boundary"
+    group: cross_family
+    sides:
+      - codes: ["851419"]
+        keywords: ["furnace", "furnaces", "oven", "ovens", "kiln",
+                   "heat treatment", "heating chamber"]
+      - codes: ["848620"]
+        keywords: ["diffusion", "rapid thermal", "rtp", "rta", "anneal",
+                   "annealing", "oxidation", "semiconductor", "wafer",
+                   "wafers"]
+    note: >
+      General industrial furnace or oven (8514.19) vs semiconductor
+      processing equipment of Chapter 84 Note 11 (8486.20) for diffusion,
+      oxidation, rapid thermal processing and annealing; the
+      semiconductor-specific purpose decides.
+
+  - id: "machine_with_function"
+    group: cross_family
+    sides:
+      - codes: ["854370"]
+        keywords: ["individual function", "signal generator", "rf generator",
+                   "plasma generator", "electrical machine"]
+      - codes: ["8486"]
+        keywords: ["semiconductor", "wafer", "wafers", "die attach",
+                   "wire bonder", "lithography"]
+      - codes: ["851680"]
+        keywords: ["heating resistor", "heating resistors", "heating element",
+                   "heating elements", "electrothermic"]
+    note: >
+      Electrical machine with an individual function (8543.70) vs equipment
+      solely or principally for semiconductor manufacture (8486) vs electric
+      heating resistors (8516.80); specificity of purpose drives the heading.
+
+  - id: "parts_attribution"
+    group: cross_family
+    sides:
+      - codes: ["848690", "853890", "903190", "903090"]
+        keywords: ["part", "parts", "spare", "accessory", "accessories",
+                   "for use in", "for use with"]
+      - codes: ["732090", "732690", "761699"]
+        keywords: ["spring", "springs", "steel", "stainless", "iron",
+                   "aluminium", "aluminum", "bracket", "brackets", "clamp",
+                   "clamps", "washer", "washers", "fastener", "fasteners"]
+    note: >
+      Part attribution: an identifiable part of a specific machine (8486.90,
+      8538.90, 9030.90, 9031.90) vs a general-use metal article (7320.90,
+      7326.90, 7616.99); the Section XV exclusions and Section XVI Note 2
+      decide.
+
+  - id: "led_device_vs_luminaire"
+    group: cross_family
+    sides:
+      - codes: ["854141"]
+        keywords: ["led", "leds", "light-emitting diode",
+                   "light emitting diode", "light-emitting diodes",
+                   "light emitting diodes"]
+      - codes: ["940542"]
+        keywords: ["luminaire", "luminaires", "lamp", "lamps", "lighting",
+                   "light fitting", "light fixture", "fixture", "fixtures",
+                   "floodlight", "downlight"]
+    note: >
+      LED as a semiconductor device or module (8541.41) vs a finished
+      luminaire or light fitting (9405.42); completeness as a lighting
+      article decides.
+
+  - id: "display_module_boundary"
+    group: cross_family
+    sides:
+      - codes: ["852491"]
+        keywords: ["display module", "display modules", "flat-panel",
+                   "flat panel", "lcd", "oled", "display panel",
+                   "touchscreen", "touch screen"]
+      - codes: ["901380"]
+        keywords: ["liquid crystal", "optical appliance", "optical device"]
+      - codes: ["847130"]
+        keywords: ["computer", "laptop", "notebook", "tablet",
+                   "automatic data processing", "adp"]
+    note: >
+      HS2022 flat-panel display module (8524.91) vs other optical appliance
+      (9013.80) vs a complete data-processing machine (8471.30); whether the
+      module is presented bare, as an optical device, or built into a machine
+      decides.
+
+  - id: "amplifier_boundary"
+    group: cross_family
+    sides:
+      - codes: ["851840"]
+        keywords: ["audio", "audio-frequency", "sound", "loudspeaker",
+                   "loudspeakers", "speaker", "speakers", "headphone",
+                   "headphones"]
+      - codes: ["854233"]
+        keywords: ["amplifier", "amplifiers", "op amp", "op-amp",
+                   "operational amplifier", "gain"]
+      - codes: ["854370"]
+        keywords: ["radio frequency", "rf", "microwave", "signal booster"]
+    note: >
+      Audio-frequency amplifier apparatus (8518.40) vs amplifier integrated
+      circuit (8542.33) vs other electrical machine with individual function
+      (8543.70); apparatus vs component and the signal domain decide.
+
+  - id: "cable_vs_connector"
+    group: cross_family
+    sides:
+      - codes: ["854442"]
+        keywords: ["cable", "cables", "cord", "cords", "harness",
+                   "harnesses", "wiring", "fitted with connectors"]
+      - codes: ["853669"]
+        keywords: ["connector", "connectors", "socket", "sockets", "plug",
+                   "plugs", "receptacle", "receptacles", "header", "headers",
+                   "terminal", "terminals"]
+    note: >
+      Cable assembly fitted with connectors (8544.42) vs the connector
+      itself (8536.69); whether the conductor is included decides.
+
+  - id: "sensor_boundary"
+    group: cross_family
+    sides:
+      - codes: ["854151"]
+        keywords: ["transducer", "transducers", "sensor", "sensors",
+                   "hall effect", "pressure sensor", "accelerometer"]
+      - codes: ["902519"]
+        keywords: ["thermometer", "thermometers", "pyrometer", "pyrometers",
+                   "temperature"]
+      - codes: ["903"]
+        keywords: ["instrument", "instruments", "meter", "meters",
+                   "measuring", "gauge"]
+    note: >
+      HS2022 semiconductor transducer (8541.51) vs thermometer or similar
+      instrument (9025.19) vs the measuring instruments of Chapter 90; a
+      sensor packaged alone classifies as a device, while one built into an
+      instrument follows the instrument.
+
+  - id: "crystal_substrate_boundary"
+    group: cross_family
+    sides:
+      - codes: ["710499"]
+        keywords: ["sapphire", "quartz", "synthetic", "crystal", "crystals",
+                   "piezoelectric", "monocrystal"]
+      - codes: ["381800"]
+        keywords: ["doped", "dopant", "electronic grade", "substrate",
+                   "substrates", "epitaxial"]
+      - codes: ["900190"]
+        keywords: ["optical", "lens", "lenses", "fiber", "fibre", "prism",
+                   "prisms"]
+    note: >
+      Worked synthetic crystal (7104.99) vs element doped for use in
+      electronics (3818.00) vs optical element (9001.90); working, doping and
+      optical function decide.

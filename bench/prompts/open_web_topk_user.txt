@@ -1,0 +1,5 @@
+Product description:
+{tier_text}
+
+Use web search to research the product and any relevant manufacturer or technical details, then return a JSON array of {top_k} six-digit HS6 codes, ranked most plausible first. Respond with only the JSON array.
+Example output: ["850760", "850650", "850690", "850780", "850720"]

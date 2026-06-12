@@ -1,0 +1,110 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemiHS-Bench Reference Corpus Entry",
+  "version": "2.0.0",
+  "description": "Schema for one line of data/reference_corpus.jsonl: a customs classification ruling from CROSS (US CBP), EBTI (EU Binding Tariff Information), or Japan Customs, provided as supporting domain evidence for the benchmark. Benchmark records point into this corpus via their reference_ruling_ids field.",
+  "type": "object",
+  "required": [
+    "evidence_id",
+    "source",
+    "jurisdiction",
+    "hs6_label",
+    "url",
+    "tier1_text",
+    "subject_terms",
+    "rationale_excerpt"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "evidence_id": {
+      "type": "string",
+      "description": "Stable identifier of the form CROSS-<ruling-number>, EBTI-<member-state>-<reference>, or JP_CUSTOMS-<registration-number>. Whitespace in the source reference is replaced with underscores; slashes, hyphens, periods, and underscores are kept as issued.",
+      "pattern": "^(EBTI-[A-Z]{2}-[A-Za-z0-9_./-]+|CROSS-[A-Za-z0-9_./-]+|JP_CUSTOMS-[A-Za-z0-9_./-]+)$",
+      "examples": [
+        "CROSS-N123456",
+        "EBTI-DE-DE18254/15-1",
+        "EBTI-CZ-CZ07_0791_2007",
+        "JP_CUSTOMS-123003574"
+      ]
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "CROSS",
+        "EBTI",
+        "JP_CUSTOMS"
+      ],
+      "description": "Issuing authority. CROSS is the US CBP rulings database, EBTI is the EU Binding Tariff Information system, and JP_CUSTOMS is the Japan Customs advance classification ruling service."
+    },
+    "jurisdiction": {
+      "type": "string",
+      "description": "Legal regime under which the ruling is binding: US for CROSS, JP for JP_CUSTOMS, and the issuing EU member state for EBTI. EU-EN marks EBTI rulings whose issuing member state was not recorded in the source export.",
+      "enum": [
+        "EU-AT",
+        "EU-BE",
+        "EU-BG",
+        "EU-CY",
+        "EU-CZ",
+        "EU-DE",
+        "EU-DK",
+        "EU-EE",
+        "EU-ES",
+        "EU-FI",
+        "EU-FR",
+        "EU-GR",
+        "EU-HR",
+        "EU-HU",
+        "EU-IE",
+        "EU-IT",
+        "EU-LT",
+        "EU-LU",
+        "EU-LV",
+        "EU-MT",
+        "EU-NL",
+        "EU-PL",
+        "EU-PT",
+        "EU-RO",
+        "EU-SE",
+        "EU-SI",
+        "EU-SK",
+        "EU-EN",
+        "US",
+        "JP"
+      ]
+    },
+    "hs6_label": {
+      "type": "string",
+      "description": "Six-digit HS code (HS2022 nomenclature) the ruling assigned to the goods. The corpus covers the benchmark's 73 in-scope HS6 codes plus closely related neighboring codes, so models and graders can also see rulings for plausible near-miss classifications.",
+      "pattern": "^[0-9]{6}$",
+      "examples": [
+        "854231",
+        "381800",
+        "848620"
+      ]
+    },
+    "url": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "description": "Public URL of the full ruling (rulings.cbp.gov for CROSS, customs.go.jp for JP_CUSTOMS). Null when no stable public URL is available; the ruling text is still preserved in tier1_text."
+    },
+    "tier1_text": {
+      "type": "string",
+      "description": "Opening passage of the ruling describing the goods at issue (the full body for short rulings). Kept in the original language of the ruling.",
+      "minLength": 20,
+      "maxLength": 8000
+    },
+    "subject_terms": {
+      "type": "array",
+      "description": "Keyword or category terms attached to the ruling by the issuing authority, useful for retrieval. Empty when the source did not provide keywords; fall back to tier1_text for matching in that case.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rationale_excerpt": {
+      "type": "string",
+      "description": "The ruling's classification reasoning, typically citing General Rules of Interpretation, Explanatory Notes, or product-feature analysis. Empty when the source captured only the goods description; fall back to tier1_text in that case."
+    }
+  }
+}

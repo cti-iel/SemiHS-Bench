@@ -1,0 +1,8 @@
+Candidate HS6 codes:
+{candidates_block}
+
+Product description:
+{tier_text}
+
+Return a JSON array of {num_candidates} integer indices (one per candidate) in ranked order, most likely first. Output the JSON array only.
+Example output: [2, 0, 3, 1]

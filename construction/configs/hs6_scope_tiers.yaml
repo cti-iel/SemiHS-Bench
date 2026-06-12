@@ -1,0 +1,105 @@
+# SemiHS-Bench — HS6 scope tiers
+#
+# Partitions the in-scope HS6 codes into two scope tiers, used by
+# the ingest scope-filtering steps.
+#
+# - core         : HS6 codes that are unambiguously semiconductor products
+#                  or directly used in semiconductor device fabrication.
+#                  These dominate the benchmark (~80% of records).
+#
+# - supply_chain : HS6 codes that border semiconductor manufacturing — wafer
+#                  metrology, photochemicals, electronic-grade gases — but
+#                  classify under chapters/headings that also cover non-semi
+#                  goods. Included only when the per-HS4 sub-allow rule
+#                  matches a semiconductor-specific context.
+#
+# Per-HS4 sub-allow rules:
+#   9030.* → only 9030.82 (semi parametric test) and 9030.90 (parts) allowed
+#   9031.* → only 9031.41 (wafer/reticle optical inspection), 9031.49
+#            (other optical), 9031.80 (other measuring), 9031.90 (parts)
+#            with wafer/reticle context allowed
+#   3707.* → lithography photochemicals only (370710 dev, 370790 other)
+#   2804.* → only 280410, 280440, 280461, 280469 (silicon and electronic-
+#            grade gases) allowed
+#
+# Out of scope (present in earlier revisions but dropped): 8534, 8543, and anything
+# in 8479 / 8456 / 7410 / 7411 / 8532 / 8533 / 8536 / 3824.
+#
+# Scope expansion (supply_chain tier):
+#   * 8504 — power circuit assemblies (transformers, static converters,
+#            inductors) used downstream of semiconductor devices. Re-included
+#            after an earlier revision dropped it; the catalog expert review covers these
+#            because they bridge bare-semi and finished-equipment scopes.
+#   * 8473 — parts for automatic data processing machines (HATs, daughter
+#            boards) commonly populated with semiconductor devices.
+#   * 8523 — solid-state non-volatile storage media (microSD/eMMC/NVMe/USB)
+#            where the bare NAND IC has been packaged into a finished
+#            consumer/industrial product.
+
+hs_version: HS2022
+
+core:
+  # 8541 — Semiconductor devices (diodes, transistors, photo, sensors)
+  - "854110"  # diodes (rectifier, Schottky, Zener, TVS, RF, bridge)
+  - "854121"  # bipolar transistors (BJT)
+  - "854129"  # other transistors (MOSFET, JFET, IGBT, SiC, GaN, WLCSP)
+  - "854130"  # thyristors (SCR, TRIAC, DIAC)
+  - "854141"  # LEDs
+  - "854142"  # photovoltaic cells
+  - "854143"  # photodiodes, phototransistors
+  - "854149"  # other photosensitive (optoisolators, image sensors, lasers)
+  - "854151"  # transducers (Hall effect, MEMS pressure, magnetoresistive)
+  - "854159"  # other transducers (ambient light, MEMS motion)
+  - "854160"  # mounted piezoelectric crystals
+  - "854190"  # parts of semiconductor devices
+  # 8542 — Electronic integrated circuits
+  - "854231"  # processors / MCU / SoC / FPGA / CPLD / DSP / RISC-V
+  - "854232"  # memory (DRAM, NAND, NOR, EEPROM, SRAM, HBM, CXL)
+  - "854233"  # amplifiers (op-amps, RF, audio, comparators)
+  - "854239"  # other ICs (PMIC, ADC/DAC, logic, interface, clock, RF)
+  - "854290"  # parts of ICs
+  # 8486 — Semiconductor manufacturing equipment
+  - "848610"  # boules / wafers manufacturing (CZ, slicing, CMP, anneal)
+  - "848620"  # device/IC mfg eq (litho, etch, CVD, PVD, implant)
+  - "848640"  # assembly / packaging (dicing, bond, encapsulate, hybrid)
+  - "848690"  # parts of semiconductor manufacturing equipment
+  # 3818 — Chemical elements doped for electronics (bare wafers ready for fab)
+  - "381800"  # silicon / SiC / GaAs / InP / engineered substrates
+
+supply_chain:
+  # 9030 — Test instruments (semi context only)
+  - "903082"  # semi parametric / wafer / IC test instruments
+  - "903090"  # parts of 903082 (probe cards, test sockets, burn-in)
+  # 9031 — Measuring instruments (semi wafer/reticle context only)
+  - "903141"  # optical wafer / reticle inspection
+  - "903149"  # other optical metrology (CD-SEM, e-beam wafer)
+  - "903180"  # other measuring instruments (overlay, profilometer, OCD)
+  - "903190"  # parts of 9031 wafer/reticle metrology
+  # 3707 — Lithography photochemicals only
+  - "370710"  # photoresist developers (TMAH)
+  - "370790"  # other photoresists, BARC, strippers, EUV resist
+  # 2804 — Silicon and electronic-grade gases only
+  - "280410"  # silane, disilane, dichlorosilane (gas precursors)
+  - "280440"  # UHP nitrogen, hydrogen, helium, argon, NF3, WF6
+  - "280461"  # high-purity silicon (9N, 11N polysilicon)
+  - "280469"  # standard silicon (electronic-grade)
+  # 8504 — Power circuit assemblies (scope expansion)
+  - "850431"  # transformers ≤ 1 kVA (pulse, signal, isolation transformers)
+  - "850440"  # static converters (AC-DC, DC-DC, PoE PD, isolated converter modules)
+  - "850450"  # other inductors (SMD power, ferrite core, common mode chokes)
+  # 8473 — Parts for ADP machines (scope expansion)
+  - "847330"  # accessories / HATs / daughter boards for computer systems
+  # 8523 — Solid-state non-volatile storage media (scope expansion)
+  - "852351"  # microSD, eMMC, NVMe SSD, USB drives, DIMM modules (finished media)
+  # Value-chain materials & equipment (scope expansion)
+  - "710421"  # synthetic sapphire, unworked (boules)
+  - "710491"  # synthetic sapphire, worked (wafers / substrates / windows)
+  - "280530"  # rare-earth metals, scandium, yttrium (dopants, sputter targets)
+  - "285000"  # hydrides, nitrides, silicides, borides (CVD precursors, targets)
+  - "282690"  # fluorides (NF3/WF6 etch-deposition compounds, sputter targets)
+  - "841989"  # semiconductor process furnaces (tube / CVD / diffusion)
+
+# Out-of-scope HS4s (dropped from the carryover pool):
+out_of_scope_dropped:
+  - "8534"  # printed circuits (PCBs) — too broad; appears widely outside semi
+  - "8543"  # other electrical machines NES — catch-all

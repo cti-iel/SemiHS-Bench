@@ -1,0 +1,5 @@
+Product description:
+{tier_text}
+
+Return a JSON array of {top_k} six-digit HS6 codes, ranked most plausible first. Use your own knowledge of HS tariff nomenclature. Respond with only the JSON array.
+Example output: ["850760", "850650", "850690", "850780", "850720"]

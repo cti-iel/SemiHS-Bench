@@ -1,0 +1,74 @@
+hs6,description
+280410,Hydrogen
+280440,Oxygen
+280461,Silicon; containing by weight not less than 99.99% of silicon
+280530,"Earth-metals, rare; scandium and yttrium, whether or not intermixed or interalloyed"
+282612,Fluorides; of aluminium
+282619,Fluorides; other than of aluminium
+284430,"Uranium; depleted in U235, thorium, their compounds, alloys, dispersions (including cermets), ceramic products and mixtures containing uranium depleted in U235, thorium; compounds of these products"
+285000,"Hydrides, nitrides, azides, silicides and borides, whether or not chemically defined, other than compounds which are also carbides of heading no. 2849"
+370710,"Photographic goods; sensitised emulsions, put up in measured portions or put up for retail sale in a form ready for use"
+370790,"Photographic goods; chemical preparations other than sensitised emulsions, put up in measured portions or put up for retail sale in a form ready for use"
+381800,"Chemical elements; doped for use in electronics, in the form of discs, wafers or similar forms; chemical compounds doped for use in electronics"
+710499,"Stones; synthetic or reconstructed precious or semi-precious n.e.c. in heading 7104, worked or graded but not strung, mounted or set; ungraded synthetic or reconstructed precious or semi-precious stones, temporarily strung for convenience of transport"
+732090,Iron or steel; springs n.e.c. in heading no. 7320
+732690,Iron or steel; articles n.e.c. in heading 7326
+761699,Aluminium; articles n.e.c. in heading 7616
+844332,"Printing, copying, and facsimile machines; single-function printing, copying or facsimile machines, capable of connecting to an automatic data processing machine or to a network"
+847130,"Automatic data processing machines; portable, weighing not more than 10kg, consisting of at least a central processing unit, a keyboard and a display"
+847150,"Units of automatic data processing machines; processing units other than those of item no. 8471.41 or 8471.49, whether or not containing in the same housing one or two of the following types of unit: storage units, input units or output units"
+847330,"Machinery; parts and accessories (other than covers, carrying cases and the like) of the machines of heading no. 8471"
+848610,Machines and apparatus of a kind used solely or principally for the manufacture of semiconductor boules or wafers
+848620,Machines and apparatus of a kind used solely or principally for the manufacture of semiconductor devices or of electronic integrated circuits
+848640,"Machines and apparatus of a kind used solely or principally for the manufacture or repair of masks and reticles, assembling semiconductor devices or electronic integrated circuits, or for lifting, handling, loading or unloading items of heading 8486"
+848690,Machines and apparatus of heading 8486; parts and accessories
+850431,"Electrical transformers; n.e.c. in item no. 8504.2, having a power handling capacity not exceeding 1kVA"
+850440,Electrical static converters
+850450,Electrical inductors; n.e.c. in heading no. 8504
+850490,"Electrical transformers, static converters and inductors; parts thereof"
+851310,"Lamps; portable, electric, designed to function by their own source of energy (excluding lighting equipment of heading no. 8512)"
+851419,"Furnaces and ovens; electric, for industrial or laboratory use, resistance heated; other than hot isostatic presses, for the manufacture of semiconductor devices on semiconductor wafers"
+851680,"Resistors; electric heating, other than those of heading no. 8545"
+851762,"Communication apparatus (excluding telephone sets or base stations); machines for the reception, conversion and transmission or regeneration of voice, images or other data, including switching and routing apparatus"
+851840,Amplifiers; audio-frequency electric
+852351,"Semiconductor media; solid-state non-volatile storage devices, whether or not recorded, excluding products of Chapter 37"
+852491,"Flat panel display modules, whether or not incorporating touch-sensitive screens; of liquid crystals, with drivers or control circuits"
+852691,Radio navigational aid apparatus
+853610,"Electrical apparatus; fuses, for a voltage not exceeding 1000 volts"
+853650,"Electrical apparatus; switches n.e.c. in heading no. 8536, for a voltage not exceeding 1000 volts"
+853669,"Electrical apparatus; plugs and sockets, for a voltage not exceeding 1000 volts"
+853890,"Electrical apparatus; parts suitable for use solely or principally with the apparatus of heading no. 8535, 8536 or 8537"
+854110,"Electrical apparatus; diodes, other than photosensitive or light-emitting diodes (LED)"
+854121,"Electrical apparatus; transistors, (other than photosensitive), with a dissipation rate of less than 1W"
+854129,"Electrical apparatus; transistors, (other than photosensitive), with a dissipation rate of 1W or more"
+854130,"Electrical apparatus; thyristors, diacs and triacs, other than photosensitive devices"
+854141,"Electrical apparatus; photosensitive semiconductor devices, light emitting diodes (LED)"
+854142,"Electrical apparatus; photosensitive semiconductor devices, photovoltaic cells not assembled in modules or made up into panels"
+854149,"Electrical apparatus; photosensitive semiconductor devices, diodes other than light emitting diodes and photovoltaic cells whether or not assembled in modules or made up into panels"
+854151,"Electrical apparatus; photosensitive semiconductor devices, semiconductor-based transducers"
+854160,Crystals; mounted piezo-electric
+854190,"Electrical apparatus; parts for diodes, transistors and similar semiconductor devices and photosensitive semiconductor devices"
+854231,"Electronic integrated circuits; processors and controllers, whether or not combined with memories, converters, logic circuits, amplifiers, clock and timing circuits, or other circuits"
+854232,Electronic integrated circuits; memories
+854233,Electronic integrated circuits; amplifiers
+854239,Electronic integrated circuits; n.e.c. in heading no. 8542
+854370,"Electrical machines and apparatus; having individual functions, not specified or included elsewhere in this chapter, n.e.c. in heading no. 8543"
+854442,"Insulated electric conductors; for a voltage not exceeding 1000 volts, fitted with connectors"
+900190,"Optical elements; lenses n.e.c. in heading no. 9001, prisms, mirrors and other optical elements, unmounted, of any material (excluding elements of glass not optically worked)"
+901380,"Optical devices, appliances and instruments; n.e.c. in heading no. 9013"
+902519,"Thermometers and pyrometers; (other than liquid filled, for direct reading), not combined with other instruments"
+902590,"Hydrometers and similar floating instruments, barometers, hygrometers, psychrometers, thermometers, pyrometers; recording or not, any combination of these instruments, parts and accessories"
+902710,"Instruments and apparatus; gas or smoke analysis apparatus, for physical or chemical analysis"
+902750,"Instruments and apparatus; using optical radiations (UV, visible, IR), (other than spectrometers, spectrophotometers and spectrographs)"
+902910,"Meters and counters; revolution counters, production counters, taximeters, mileometers, pedometers and the like"
+903033,"Instruments and apparatus; for measuring or checking voltage, current, resistance or power, without a recording device (excluding multimeters)"
+903039,"Instruments and apparatus; for measuring or checking voltage, current, resistance or power, with a recording device (excluding multimeters)"
+903040,"Instruments and apparatus; specially designed for telecommunications (e.g. cross-talk meters, gain measuring instruments, distortion factor meters, psophometers)"
+903082,Instruments and apparatus; for measuring or checking semiconductor wafers or devices (including integrated circuits)
+903084,"Instruments and apparatus; n.e.c. in heading no. 9030, with a recording device"
+903090,"Instruments, apparatus for measuring, checking electrical quantities, not meters of heading no. 9028; parts and accessories, for measuring or detecting alpha, beta, gamma, x-ray, cosmic and other radiations"
+903141,"Optical instruments and appliances; for inspecting semiconductor wafers or devices or for inspecting photomasks or reticles used in manufacturing semiconductor devices, n.e.c. in chapter 90"
+903149,"Optical instruments and appliances; for measuring or checking, n.e.c. in chapter 90"
+903180,"Instruments, appliances and machines; for measuring or checking n.e.c. in chapter 90"
+903190,"Instruments, appliances and machines; parts and accessories for those measuring or checking devices of heading no. 9031"
+940542,"Luminaires and light fittings; electric, designed for use solely with light-emitting diode (LED) light sources"

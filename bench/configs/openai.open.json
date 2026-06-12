@@ -1,0 +1,64 @@
+{
+  "name": "openai-open",
+  "schema_version": "2.0.0",
+  "data": {
+    "split": "eval",
+    "mode": "open",
+    "tiers": [
+      1,
+      2
+    ]
+  },
+  "run": {
+    "out_dir": "runs/openai-open",
+    "resume": true,
+    "max_parallel_requests": 20,
+    "max_parallel_combos": 1,
+    "parallel_models": true,
+    "checkpoint_every": 25,
+    "max_retries": 3,
+    "retry_sleep_s": 10,
+    "temperature": 0.0,
+    "max_output_tokens": 10000,
+    "request_timeout_s": 180,
+    "progress_every": 50,
+    "web_max_uses": 5,
+    "search_context_size": "medium"
+  },
+  "prompts": {
+    "dir": "bench/prompts",
+    "version": "default"
+  },
+  "models": [
+    {
+      "name": "gpt-5.4-mini",
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "reasoning_levels": [
+        "none"
+      ],
+      "web_modes": [
+        "off",
+        "unrestricted"
+      ]
+    },
+    {
+      "name": "gpt-5.5",
+      "provider": "openai",
+      "model": "gpt-5.5",
+      "reasoning_levels": [
+        "none"
+      ],
+      "web_modes": [
+        "off",
+        "unrestricted"
+      ]
+    }
+  ],
+  "langsmith": {
+    "mode": "both",
+    "project": "semihs-bench",
+    "upload_reference_datasets": true,
+    "include_raw_provider_response": true
+  }
+}

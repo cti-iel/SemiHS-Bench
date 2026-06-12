@@ -1,0 +1,34 @@
+# Secrets
+.env
+*.env
+!.env.example
+
+# Python
+.venv/
+.venv_eval/
+venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.pycache/
+
+# Run outputs / experiment artifacts
+runs/
+langsmith_datasets.json
+langsmith.json
+*.log
+
+# Construction pipeline working data (raw/intermediate/built artifacts are
+# NOT redistributed -- see construction/README.md)
+construction/data/raw/
+construction/data/intermediate/
+construction/data/benchmark/
+
+# Generated example outputs (canonical oracle examples are committed without this prefix)
+examples/_my_*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/

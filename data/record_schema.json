@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SemiHS-Bench Record",
+  "version": "2.0.0",
+  "description": "Schema for a single SemiHS-Bench benchmark record. Each record carries two model-facing input tiers (tier1_description and tier2_minimal), the gold HS6/HS4/HS2 labels, a fixed candidate slate, source-type metadata, hardness tags, and a human-readable justification.",
+  "type": "object",
+  "required": [
+    "id",
+    "frozen_id",
+    "split",
+    "tier1_description",
+    "tier1_source",
+    "tier2_minimal",
+    "tier2_classifiable",
+    "hs6_label",
+    "hs4_label",
+    "hs2_label",
+    "segment",
+    "confidence_tier",
+    "difficulty_tags",
+    "boundary_note",
+    "justification_text",
+    "bol_metadata",
+    "candidate_set",
+    "reference_ruling_ids"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "comment": "Released ids are SH-<digits>. Records still moving through ingest carry a provisional source-prefixed form SH-<source>-<digits> until the release build renumbers them.",
+      "pattern": "^SH-([a-z]+-)?\\d{4,}(\\.[a-z_]+)?$"
+    },
+    "frozen_id": {
+      "type": "string",
+      "pattern": "^v2\\.0\\.(eval|train)\\.\\d{4,}$",
+      "description": "Stable release identifier: v2.0.<split>.<ordinal>."
+    },
+    "split": {
+      "type": "string",
+      "enum": [
+        "eval",
+        "train"
+      ]
+    },
+    "tier1_description": {
+      "type": "string",
+      "minLength": 10,
+      "description": "Full natural-language product description, written to read like real trade or catalog text (typically 60-500 chars, median around 180)."
+    },
+    "tier1_source": {
+      "type": "string",
+      "enum": [
+        "BOL",
+        "catalog"
+      ],
+      "description": "Only BOL and manufacturer-catalog sources contribute benchmark records; customs rulings live in reference_corpus.jsonl as supporting evidence."
+    },
+    "tier2_minimal": {
+      "type": "object",
+      "required": [
+        "part_name",
+        "manufacturer"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "part_name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "manufacturer": {
+          "type": "string"
+        }
+      },
+      "description": "The sparse ERP-style Tier 2 input: a manufacturer part number or short descriptor plus the manufacturer name."
+    },
+    "tier2_classifiable": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no",
+        "partial"
+      ],
+      "description": "Expert judgment of whether the gold HS6 can be reached from the Tier 2 input alone."
+    },
+    "hs6_label": {
+      "type": "string",
+      "pattern": "^\\d{6}$"
+    },
+    "hs4_label": {
+      "type": "string",
+      "pattern": "^\\d{4}$"
+    },
+    "hs2_label": {
+      "type": "string",
+      "pattern": "^\\d{2}$"
+    },
+    "segment": {
+      "type": "string",
+      "enum": [
+        "material",
+        "equipment",
+        "metrology",
+        "component",
+        "end_product"
+      ],
+      "description": "Supply-chain segment by OECD production stage. 'material' = process inputs, substrates, gases, chemicals, photoresist; 'equipment' = fabrication machinery, furnaces, dedicated equipment parts; 'metrology' = measurement, inspection, test instrumentation; 'component' = semiconductor devices, electronic components, optics; 'end_product' = finished, semiconductor-intensive downstream goods. See data/taxonomy.csv for the per-HS6 mapping."
+    },
+    "confidence_tier": {
+      "type": "string",
+      "enum": [
+        "high",
+        "medium",
+        "low"
+      ],
+      "description": "Confidence in the gold label. For records grounded in cited rulings: high = \u22652 cross-jurisdiction citations, medium = \u22651, low = none. For catalog records the tier reflects the expert reviewer's assessed confidence."
+    },
+    "difficulty_tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "enum": [
+          "8541_siblings",
+          "8542_ic_function",
+          "8486_process_stage",
+          "8504_power_splits",
+          "8536_connection_splits",
+          "9030_measurement_splits",
+          "9031_inspection_splits",
+          "2804_gas_purity",
+          "3707_photochemical",
+          "9027_analysis_splits",
+          "8471_adp_splits",
+          "8541_vs_8542",
+          "populated_board_boundary",
+          "storage_boundary",
+          "doped_vs_undoped",
+          "process_vs_metrology",
+          "furnace_boundary",
+          "machine_with_function",
+          "parts_attribution",
+          "led_device_vs_luminaire",
+          "display_module_boundary",
+          "amplifier_boundary",
+          "cable_vs_connector",
+          "sensor_boundary",
+          "crystal_substrate_boundary"
+        ]
+      },
+      "description": "IDs of the confusable HS6 boundaries this record sits on, drawn from a closed vocabulary of within-family sibling splits and cross-family frontiers (see construction/configs/boundary_tags.yaml). Empty when the record is not on a contested boundary."
+    },
+    "boundary_note": {
+      "type": "string",
+      "description": "Human-readable comment stating the deciding criterion for each boundary in difficulty_tags. Empty string exactly when difficulty_tags is empty."
+    },
+    "justification_text": {
+      "type": "string",
+      "description": "Long-form justification carried over from the source ruling or expert annotation; not size-bounded. For released records, this is typically derived from the cited reference-corpus rationale_excerpt or expert-written extension."
+    },
+    "bol_metadata": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "description": "BOL-source metadata (null for catalog-source records).",
+      "properties": {
+        "shipper": {
+          "type": "string"
+        },
+        "consignee": {
+          "type": "string"
+        },
+        "port_origin": {
+          "type": "string"
+        },
+        "port_dest": {
+          "type": "string"
+        },
+        "bol_description": {
+          "type": "string"
+        },
+        "declared_hs": {
+          "type": "string"
+        },
+        "hs_verified": {
+          "type": "boolean"
+        },
+        "arrival_date": {
+          "type": "string"
+        },
+        "origin_country": {
+          "type": "string"
+        }
+      }
+    },
+    "candidate_set": {
+      "type": "object",
+      "required": [
+        "size",
+        "codes",
+        "gold_rank_in_candidates"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "size": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 10
+        },
+        "codes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^\\d{6}$"
+          },
+          "minItems": 2,
+          "maxItems": 10,
+          "uniqueItems": true
+        },
+        "gold_rank_in_candidates": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "reference_ruling_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Evidence IDs of rulings in data/reference_corpus.jsonl that classify comparable goods under this record's gold HS6, kept when they share descriptive keywords with the record text and ordered by that overlap. When no same-HS6 ruling shares a keyword (common for rulings in another language), all same-HS6 rulings are listed instead. Empty when the corpus has no ruling for that code."
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "benchmark_name": "SemiHS-Bench",
+  "target_unique_products": 900,
+  "hs_headings": [
+    {"hs2": "28", "hs4": "2804", "label": "Hydrogen, rare gases, silicon"},
+    {"hs2": "37", "hs4": "3707", "label": "Chemical preparations for photographic uses"},
+    {"hs2": "38", "hs4": "3818", "label": "Chemical elements doped for electronics"},
+    {"hs2": "38", "hs4": "3824", "label": "Prepared binders and chemical products"},
+    {"hs2": "74", "hs4": "7410", "label": "Copper foil"},
+    {"hs2": "74", "hs4": "7411", "label": "Copper tubes and pipes"},
+    {"hs2": "84", "hs4": "8456", "label": "Laser or other beam machine tools"},
+    {"hs2": "84", "hs4": "8479", "label": "Machines with individual functions"},
+    {"hs2": "84", "hs4": "8486", "label": "Semiconductor manufacturing equipment"},
+    {"hs2": "85", "hs4": "8504", "label": "Electrical transformers, static converters and inductors"},
+    {"hs2": "85", "hs4": "8532", "label": "Electrical capacitors"},
+    {"hs2": "85", "hs4": "8533", "label": "Electrical resistors"},
+    {"hs2": "85", "hs4": "8534", "label": "Printed circuits"},
+    {"hs2": "85", "hs4": "8536", "label": "Switching and connection apparatus"},
+    {"hs2": "85", "hs4": "8541", "label": "Diodes, transistors, semiconductor devices"},
+    {"hs2": "85", "hs4": "8542", "label": "Electronic integrated circuits"},
+    {"hs2": "85", "hs4": "8543", "label": "Other electrical machines"},
+    {"hs2": "90", "hs4": "9030", "label": "Oscilloscopes and electrical measurement"},
+    {"hs2": "90", "hs4": "9031", "label": "Measuring or checking instruments"}
+  ]
+}

@@ -1,0 +1,2 @@
+{"provider": "catalog", "mpn": "STM32F407VGT6", "manufacturer": "STMicroelectronics", "short_description": "IC MCU 32BIT ARM CORTEX-M4 168MHZ LQFP100", "category_path": "Integrated Circuits > Embedded > Microcontrollers", "specs": {"flash": "1MB", "package": "LQFP-100"}}
+

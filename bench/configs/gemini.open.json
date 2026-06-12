@@ -1,0 +1,66 @@
+{
+  "name": "gemini-open",
+  "schema_version": "2.0.0",
+  "data": {
+    "split": "eval",
+    "mode": "open",
+    "tiers": [
+      1,
+      2
+    ]
+  },
+  "run": {
+    "out_dir": "runs/gemini-open",
+    "resume": true,
+    "max_parallel_requests": 25,
+    "max_parallel_combos": 1,
+    "parallel_models": true,
+    "checkpoint_every": 25,
+    "max_retries": 3,
+    "retry_sleep_s": 5,
+    "temperature": 0.0,
+    "max_output_tokens": 10000,
+    "request_timeout_s": 300,
+    "progress_every": 50,
+    "web_max_uses": 5,
+    "search_context_size": "medium"
+  },
+  "prompts": {
+    "dir": "bench/prompts",
+    "version": "default"
+  },
+  "models": [
+    {
+      "name": "gemini-3-flash-preview",
+      "provider": "gemini",
+      "model": "gemini-3-flash-preview",
+      "reasoning_levels": [
+        "minimal"
+      ],
+      "web_modes": [
+        "off",
+        "unrestricted"
+      ],
+      "api_key_env": "GOOGLE_API_KEY"
+    },
+    {
+      "name": "gemini-3.1-pro-preview",
+      "provider": "gemini",
+      "model": "gemini-3.1-pro-preview",
+      "reasoning_levels": [
+        "low"
+      ],
+      "web_modes": [
+        "off",
+        "unrestricted"
+      ],
+      "api_key_env": "GOOGLE_API_KEY"
+    }
+  ],
+  "langsmith": {
+    "mode": "both",
+    "project": "semihs-bench",
+    "upload_reference_datasets": true,
+    "include_raw_provider_response": true
+  } 
+}

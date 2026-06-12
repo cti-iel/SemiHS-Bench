@@ -1,0 +1,78 @@
+{
+  "by_difficulty": {
+    "boundary": {
+      "hs2_top1": 1.0,
+      "hs4_top1": 1.0,
+      "hs6_top1": 1.0,
+      "hs6_top3": 1.0,
+      "hs6_top5": 1.0,
+      "mean_hier_dist": 0.0,
+      "mrr": 1.0,
+      "n": 5
+    },
+    "by_group": {
+      "sibling_split": {
+        "hs2_top1": 1.0,
+        "hs4_top1": 1.0,
+        "hs6_top1": 1.0,
+        "hs6_top3": 1.0,
+        "hs6_top5": 1.0,
+        "mean_hier_dist": 0.0,
+        "mrr": 1.0,
+        "n": 5
+      }
+    },
+    "by_tag": {
+      "2804_gas_purity": {
+        "hs2_top1": 1.0,
+        "hs4_top1": 1.0,
+        "hs6_top1": 1.0,
+        "hs6_top3": 1.0,
+        "hs6_top5": 1.0,
+        "mean_hier_dist": 0.0,
+        "mrr": 1.0,
+        "n": 5
+      }
+    },
+    "non_boundary": {
+      "n": 0
+    }
+  },
+  "by_hs2_chapter": {
+    "28": {
+      "hs2_top1": 1.0,
+      "hs4_top1": 1.0,
+      "hs6_top1": 1.0,
+      "hs6_top3": 1.0,
+      "hs6_top5": 1.0,
+      "mean_hier_dist": 0.0,
+      "mrr": 1.0,
+      "n": 5
+    }
+  },
+  "issues": {},
+  "overall": {
+    "hier_distribution": {
+      "hs2_match_only": 0,
+      "hs4_match_only": 0,
+      "hs6_match": 5,
+      "no_match": 0
+    },
+    "hs2_top1": 1.0,
+    "hs4_top1": 1.0,
+    "hs6_top1": 1.0,
+    "hs6_top3": 1.0,
+    "hs6_top5": 1.0,
+    "mean_hier_dist": 0.0,
+    "mrr": 1.0,
+    "n": 5
+  },
+  "submission": {
+    "mode": "constrained",
+    "model_id": "oracle",
+    "name": "oracle-constrained-tier1.example",
+    "notes": "Example - gold-first ranking on the first 5 eval records (eval split).",
+    "schema_version": "2.0.0",
+    "tier": 1
+  }
+}

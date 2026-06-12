@@ -1,0 +1,57 @@
+{
+  "submission": {
+    "name": "oracle-constrained-tier1.example",
+    "model_id": "oracle",
+    "mode": "constrained",
+    "tier": 1,
+    "schema_version": "2.0.0",
+    "notes": "Example - gold-first ranking on the first 5 eval records (eval split)."
+  },
+  "predictions": [
+    {
+      "frozen_id": "v2.0.eval.0001",
+      "ranked_codes": [
+        "280410",
+        "280440",
+        "280461",
+        "280469"
+      ]
+    },
+    {
+      "frozen_id": "v2.0.eval.0002",
+      "ranked_codes": [
+        "280410",
+        "280469",
+        "280440",
+        "280461"
+      ]
+    },
+    {
+      "frozen_id": "v2.0.eval.0003",
+      "ranked_codes": [
+        "280410",
+        "280469",
+        "280440",
+        "280461"
+      ]
+    },
+    {
+      "frozen_id": "v2.0.eval.0004",
+      "ranked_codes": [
+        "280410",
+        "280469",
+        "280461",
+        "280440"
+      ]
+    },
+    {
+      "frozen_id": "v2.0.eval.0005",
+      "ranked_codes": [
+        "280440",
+        "280469",
+        "280410",
+        "280461"
+      ]
+    }
+  ]
+}

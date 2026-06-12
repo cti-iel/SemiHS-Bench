@@ -1,0 +1,146 @@
+# SemiHS-Bench — Per-manufacturer record caps
+#
+# Caps the number of benchmark records contributed by any single manufacturer.
+# Enforced during release packaging by the manufacturer gate in
+# scripts/build_release.py.
+#
+# Rationale: prevent the benchmark from being dominated by any one vendor's
+# product family. Top-tier IC vendors (TI, ST, Microchip, NXP, Infineon) have
+# the broadest semiconductor catalogs and would otherwise consume 30%+ of
+# slots each.
+#
+# Floor: ≥100 distinct manufacturers in the final release; top-50 each ≥5
+# records (per-manufacturer caps rule).
+
+hs_version: HS2022
+
+# Per-tier caps. Manufacturer names should match the canonical form used
+# in the candidate pools.
+tiers:
+  top_5_ic:
+    cap: 60
+    members:
+      - "Texas Instruments"
+      - "STMicroelectronics"
+      - "Microchip Technology"
+      - "NXP Semiconductors"
+      - "Infineon Technologies"
+
+  tier_2_ic:
+    cap: 50
+    members:
+      - "ON Semiconductor"
+      - "Analog Devices"
+      - "Renesas Electronics"
+      - "Diodes Incorporated"
+      - "Nexperia"
+      - "Rohm Semiconductor"
+      - "Toshiba Semiconductor"
+      - "Wolfspeed"
+      - "Vishay"
+      - "Lattice Semiconductor"
+      - "Qorvo"
+      - "Skyworks Solutions"
+      - "ams-OSRAM"
+      - "Kioxia"
+      - "Micron Technology"
+      - "Broadcom"
+      - "MediaTek"
+      - "Marvell Technology"
+      - "Realtek Semiconductor"
+      - "Macronix International"
+      - "Winbond Electronics"
+      - "ISSI"
+      - "GigaDevice"
+      - "Maxim Integrated"
+      - "Monolithic Power Systems"
+
+  foundry_osat:
+    cap: 30
+    members:
+      - "TSMC"
+      - "Samsung Electronics"
+      - "GlobalFoundries"
+      - "UMC"
+      - "SMIC"
+      - "Tower Semiconductor"
+      - "Intel Foundry Services"
+      - "PSMC"
+      - "Hua Hong Semiconductor"
+      - "VIS"
+      - "ASE Group"
+      - "Amkor Technology"
+      - "JCET Group"
+      - "PTI"
+      - "SPIL"
+      - "Chipbond"
+      - "ChipMOS"
+
+  equipment_metrology:
+    cap: 30
+    members:
+      - "ASML"
+      - "Applied Materials"
+      - "Lam Research"
+      - "Tokyo Electron"
+      - "KLA"
+      - "ASM International"
+      - "ASMPT"
+      - "Nikon"
+      - "Canon"
+      - "SCREEN Holdings"
+      - "Hitachi High-Tech"
+      - "Disco Corporation"
+      - "Advantest"
+      - "Teradyne"
+      - "Kulicke & Soffa"
+      - "Onto Innovation"
+      - "Camtek"
+      - "Veeco"
+      - "Lasertec"
+      - "FormFactor"
+      - "MPI Corporation"
+      - "Tokyo Seimitsu"
+      - "Besi"
+      - "EVG"
+      - "Axcelis"
+      - "Mattson Technology"
+      - "Ebara"
+      - "Brooks Automation"
+      - "MKS Instruments"
+      - "Edwards Vacuum"
+
+  materials:
+    cap: 25
+    members:
+      - "Shin-Etsu Chemical"
+      - "Shin-Etsu Handotai"
+      - "SUMCO"
+      - "GlobalWafers"
+      - "Siltronic"
+      - "SK Siltron"
+      - "Soitec"
+      - "Okmetic"
+      - "IQE"
+      - "EpiGaN"
+      - "JSR Corporation"
+      - "Tokyo Ohka Kogyo"
+      - "DuPont Electronic Materials"
+      - "Merck KGaA"
+      - "Fujifilm Electronic Materials"
+      - "Resonac"
+      - "Inpria"
+      - "Brewer Science"
+      - "Entegris"
+      - "Air Liquide Electronics"
+      - "Linde Electronics"
+      - "Air Products and Chemicals"
+      - "Versum Materials"
+      - "Wacker Polysilicon"
+      - "OCI"
+      - "Hemlock Semiconductor"
+      - "Tokuyama Corporation"
+
+  long_tail:
+    cap: 10
+    members: []  # any manufacturer not listed above defaults to this tier

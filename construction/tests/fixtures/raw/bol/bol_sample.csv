@@ -1,0 +1,3 @@
+reference,description,shipper,consignee,port_origin,port_dest,quantity,declared_hs
+BOL-0001,"DOPED SILICON WAFER 200MM",WaferWorks,Example Consignee,Kaohsiung,Los Angeles,500,381800
+

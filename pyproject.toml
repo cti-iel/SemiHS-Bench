@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "semihs-bench"
+version = "2.0.0"
+description = "SemiHS-Bench benchmark runner and scoring utilities"
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+openai     = ["openai"]
+anthropic  = ["anthropic"]
+gemini     = ["google-genai"]
+langsmith  = ["langsmith"]
+all        = ["openai", "anthropic", "google-genai", "langsmith"]
+
+[project.scripts]
+semihs-bench = "bench.run_benchmark:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["bench*"]
