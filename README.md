@@ -87,6 +87,39 @@ Each of the 73 in-scope HS6 codes carries a `segment` label
 
 ---
 
+## Baseline results
+
+We evaluate eleven instruction-tuned LLMs — closed frontier models (Claude
+Opus 4.7, Claude Sonnet 4.6, GPT-5.5, GPT-5.4-mini, Gemini 3.1 Pro, Gemini 3
+Flash) and open-weight models served through OpenRouter (Qwen3.7-Max,
+Nemotron-Ultra, GLM-5.1, MiniMax-M3, Kimi-K2.6) — on the full 900-record eval
+split, across both modes and both input tiers, with provider-native web search
+disabled and enabled.
+
+The table below is the headline view: **HS6@1 (top-1 accuracy, %), web search
+off**, across all four mode/tier conditions, sorted by constrained Tier 1.
+Random top-1 = 25.0% constrained / ~1.4% open.
+
+| Model | Constrained T1 | Constrained T2 | Open T1 | Open T2 |
+|-------|---:|---:|---:|---:|
+| Gemini-3.1-Pro | **85.1** | **76.3** | **71.2** | **51.8** |
+| Gemini-3-Flash | 81.6 | 64.6 | 61.9 | 44.1 |
+| GPT-5.5 | 80.2 | 66.8 | 62.7 | 40.6 |
+| Qwen3.7-Max | 75.9 | 57.7 | 49.9 | 31.0 |
+| Claude-Opus-4.7 | 75.3 | 60.9 | 46.4 | 33.1 |
+| Nemotron-Ultra | 50.6 | 40.6 | 48.4 | 30.1 |
+| GLM-5.1 | 50.2 | 33.9 | 39.7 | 22.3 |
+| GPT-5.4-Mini | 48.7 | 40.6 | 46.2 | 31.3 |
+| Claude-Sonnet-4.6 | 48.3 | 41.3 | 23.9 | 19.0 |
+| MiniMax-M3 | 44.0 | 33.1 | 44.7 | 28.4 |
+| Kimi-K2.6 | 40.1 | 35.2 | 43.9 | 29.4 |
+
+Full per-condition results — both web conditions and all six metrics (HS6@1,
+HS6@3, HS4@1, HS2@1, MRR, and hierarchical distance) — are in
+[`RESULTS.md`](RESULTS.md).
+
+---
+
 ## Running model evaluations
 
 Install and configure providers:
